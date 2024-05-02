@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Tracker</title>
+    <link rel="stylesheet" href="analysis.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+
+<body>
+    <nav>
+        <button class="nav-button" id="calendarButton"
+            onclick="navigateTo('./google_calendar_page/google-calendar.html')">Google Calendar</button>
+        <button class="nav-button" id="analysisButton"
+            onclick="navigateTo('./analysis_page/analysis.html')">Analysis</button>
+        <button class="nav-button" id="weekTargetsButton"
+            onclick="navigateTo('./weekly_targets_page/weekly_targets.html')">Weekly Targets</button>
+        <button class="nav-button" id="monthlyTargetsButton"
+            onclick="navigateTo('./monthly_yearly_targets_page/monthly_yearly_targets.html')">Yearly and Monthly
+            Targets</button>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Analysis Dashboard</h1>
+        </header>
+
+        <section class="control-panel">
+            <div class="time-period-selector">
+                <label for="timePeriodSelect">Select Time Period:</label>
+                <select id="timePeriodSelect">
+                    <option>Previous week</option>
+                    <option>Current week</option>
+                    <option>Previous 30 days</option>
+                    <option>Start of tracking - 08.08.23</option>
+                    <option>Based on month number</option>
+                    <option>Based on week number</option>
+                    <option>Based on selected range</option>
+                </select>
+            </div>
+
+            <!-- Additional Fields -->
+            <!-- Week and Year Selector -->
+            <div class="additional-fields" id="weekYearSelector" style="display: none;">
+                <div class="selector-container">
+                    <label for="yearSelectorForWeek">Year: </label>
+                    <select id="yearSelectorForWeek">
+                        <!-- Year options will be populated here -->
+                    </select>
+                </div>
+                <div class="selector-container" id="weekSelectorContainer">
+                    <label for="weekSelector">Week: </label>
+                    <select id="weekSelector">
+                        <!-- Week options will be populated here -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Month and Year Selector -->
+            <div class="additional-fields" id="monthYearSelector" style="display: none;">
+                <div class="selector-container">
+                    <label for="yearSelectorForMonth">Year: </label>
+                    <select id="yearSelectorForMonth">
+                        <!-- Year options will be populated here -->
+                    </select>
+                </div>
+                <div class="selector-container" id="monthSelectorContainer">
+                    <label for="monthSelector">Month: </label>
+                    <select id="monthSelector">
+                        <!-- Month options will be populated here -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="additional-fields" id="dateRangeSelector" style="display: none;">
+                <input type="date" id="startDateInput">
+                <input type="date" id="endDateInput">
+            </div>
+
+            <button id="updateDataButton" class="update-button">Update Data</button>
+        </section>
+        <!-- Text Display for Average Working Day and Average Active Time -->
+        <div class="text-info-container">
+            <div id="averageWorkingDay" class="info-box">
+                <h3>Average Working Day</h3>
+                <p class="info-data" id="averageWorkingDayData">--:--:--</p>
+            </div>
+            <div id="averageActiveTimePerDay" class="info-box">
+                <h3>Daily Average Active Time</h3>
+                <p class="info-data" id="averageActiveTimePerDayData">--:--:--</p>
+            </div>
+        </div>
+
+        <section class="analysis-grid">
+            <!-- Chart Containers for Graphical Analysis -->
+            <div class="chart-container" id="timePerCategoryChart">
+                <h2>Time Spent Per Category</h2>
+                <canvas id="timePerCategoryCanvas"></canvas>
+            </div>
+            <div class="chart-container" id="averageSessionDurationChart">
+                <h2>Average Session Duration</h2>
+                <canvas id="averageSessionDurationCanvas"></canvas>
+            </div>
+            <div class="chart-container" id="numberOfSessionsChart">
+                <h2>Number Of Sessions</h2>
+                <canvas id="numberOfSessionsCanvas"></canvas>
+            </div>
+
+            <!-- Event Summary List -->
+            <div class="chart-container">
+                <h2>Event Summary</h2>
+                <div class="event-summary-scrollable" id="eventSummary"></div>
+            </div>
+        </section>
+    </div>
+    <script src="analysis.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

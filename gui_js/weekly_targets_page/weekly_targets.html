@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productivity Tracker</title>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weekly_targets.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <nav>
+        <button class="nav-button" id="calendarButton" onclick="navigateTo('./google_calendar_page/google-calendar.html')">Google Calendar</button>
+        <button class="nav-button" id="analysisButton" onclick="navigateTo('./analysis_page/analysis.html')">Analysis</button>
+        <button class="nav-button" id="weekTargetsButton" onclick="navigateTo('./weekly_targets_page/weekly_targets.html')">Weekly Targets</button>
+        <button class="nav-button" id="monthlyTargetsButton" onclick="navigateTo('./monthly_yearly_targets_page/monthly_yearly_targets.html')">Yearly and Monthly Targets</button>
+    </nav>
+    <div class="selector-container">
+        <div class="year-selector">
+            <label for="yearSelect">Year:</label>
+            <select id="yearSelect"></select>
+        </div>
+        <div class="week-selector">
+            <label for="weekSelect">Week:</label>
+            <select id="weekSelect"></select>
+        </div>
+        <button id="loadWeekButton">Load Week</button>
+        <button id="finishWeekButton">Finish Week</button>
+        <button id="completeInitialSetupButton">Complete Initial Setup</button>
+
+    </div>
+    <div class="program-grid" id="programGrid">
+    </div>
+    <div class="results">
+    </div>
+    <script src="weekly_targets.js"></script>
+</body>
+</html>

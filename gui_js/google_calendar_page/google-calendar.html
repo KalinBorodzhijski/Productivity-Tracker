@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productivity Tracker</title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" href="google-calendar.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+<body>
+    <nav>
+        <button class="nav-button" id="calendarButton" onclick="navigateTo('./google_calendar_page/google-calendar.html')">Google Calendar</button>
+        <button class="nav-button" id="analysisButton" onclick="navigateTo('./analysis_page/analysis.html')">Analysis</button>
+        <button class="nav-button" id="weekTargetsButton" onclick="navigateTo('./weekly_targets_page/weekly_targets.html')">Weekly Targets</button>
+        <button class="nav-button" id="monthlyTargetsButton" onclick="navigateTo('./monthly_yearly_targets_page/monthly_yearly_targets.html')">Yearly and Monthly Targets</button>
+    </nav>
+    <webview id="myWebview" src="https://calendar.google.com/" autosize="on"></webview>
+    <script src="google-calendar.js"></script>
+</body>
+</html>

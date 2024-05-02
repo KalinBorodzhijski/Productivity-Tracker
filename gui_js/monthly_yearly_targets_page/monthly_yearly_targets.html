@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Productivity Tracker</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="monthly_yearly_targets.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+</head>
+
+<body>
+    <nav>
+        <button class="nav-button" id="calendarButton"
+            onclick="navigateTo('./google_calendar_page/google-calendar.html')">Google Calendar</button>
+        <button class="nav-button" id="analysisButton"
+            onclick="navigateTo('./analysis_page/analysis.html')">Analysis</button>
+        <button class="nav-button" id="weekTargetsButton"
+            onclick="navigateTo('./weekly_targets_page/weekly_targets.html')">Weekly Targets</button>
+        <button class="nav-button" id="monthlyTargetsButton"
+            onclick="navigateTo('./monthly_yearly_targets_page/monthly_yearly_targets.html')">Yearly and Monthly
+            Targets</button>
+    </nav>
+
+    <div id="container">
+        <div id="monthly-targets" class="target-section">
+            <h2>Monthly Targets</h2>
+            <div id="overall-stats" class="overall-stats">
+                <span id="completed-tasks">0</span> / <span id="total-tasks">0</span> Tasks Completed
+                (<span id="completion-percentage">0%</span>)
+            </div>
+            <div id="date-selector">
+                <button id="prev-year-btn">◀</button>
+                <input type="number" id="year-input" value="2023" readonly>
+                <button id="next-year-btn">▶</button>
+                <select id="month-dropdown"></select>
+                <button id="update-targets-btn">Update Targets</button>
+            </div>
+            <button id="globalAddTaskBtn" class="global-add-task-btn">Add New Task</button>
+            <div id="monthly-categories">
+                <!-- Dynamically generated categories and tasks will be placed here -->
+            </div>
+
+            <div id="addMonthlyTaskModal" class="modal-monthly">
+                <div class="modal-content-monthly">
+                    <span class="close-span">&times;</span>
+                    <h2>Add New Task</h2>
+                    <form id="MonthlyNewTaskForm">
+                        <input type="text" id="MonthlyTaskName" placeholder="Task Name" required>
+                        <select id="MonthlyTaskCategory">
+                            <!-- Categories options will be populated here -->
+                        </select>
+                        <button type="submit" class="add-task-submit-btn">Add Task</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div id="yearly-targets" class="target-section">
+            <h2>Yearly Targets</h2>
+            <select id="year-selector"></select>
+            <div id="targets-list"></div>
+            <button id="add-target-btn">Add New Target</button>
+
+            <div id="addTaskModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add New Task</h2>
+                    <form id="newTaskForm">
+                        <input type="text" id="taskName" placeholder="Task Name" required>
+                        <button type="submit">Add Task</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="monthly_yearly_targets.js"></script>
+</body>
+
+</html>
