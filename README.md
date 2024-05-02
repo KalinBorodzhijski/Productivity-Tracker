@@ -23,12 +23,12 @@ Ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/productivity-tracker.git
+   git clone https://github.com/KalinBorodzhijski/Productivity-Tracker.git
     ```
 
 2. Navigate to the project directory:
    ```bash
-    cd productivity-tracker
+    cd Productivity-Tracker
     ```
 
 3. Install the required npm packages:
@@ -51,7 +51,7 @@ Ensure you have the following installed:
 
 Start the application by running:
 ```bash
-npm starts
+npm start
 ```
 
 This will launch the Express server and open the application window.
