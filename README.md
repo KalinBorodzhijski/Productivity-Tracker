@@ -59,6 +59,13 @@ This will launch the Express server and open the application window.
 
 ## Usage
 - Tracking Time: Navigate to the Google Calendar tab to view and manage your calendar events.
+![Tracking Time](gui_js/screenshots/google_calendar.png)
+
 - Analyzing Productivity: Switch to the Analysis tab to view detailed analytics about your time usage.
+![Analyzing Productivity](gui_js/screenshots/analysis.png)
+
 - Setting Weekly Targets: Use the Weekly Targets tab to specify and check off tasks for each day of the current week.
+![Setting Weekly Targets](gui_js/screenshots/weekly_targets.png)
+
 - Managing Long-Term Goals: In the Yearly/Monthly Targets tab, set specific objectives you wish to achieve over longer periods.
+![Managing Long-Term Goals](gui_js/screenshots/yearly_and_monthly_tasks.png)
