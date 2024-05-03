@@ -1,11 +1,13 @@
 /IntegrationProcess.txt
-/gui_js/credentials.json
+credentials.json
 month_targets.json
 tasks.json
 year_targets.json
+ProductivityAnalyzer-win32-x64
 
 DatabaseBackup/
 .vscode/
+token.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

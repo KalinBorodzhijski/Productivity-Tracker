@@ -47,7 +47,6 @@ def number_of_sessions():
 def event_summary():
     return perform_analysis('EventSummary')
 
-
 def perform_analysis(analysis_type):
     period = request.args.get('period')
     kwargs = {}
@@ -67,5 +66,5 @@ def perform_analysis(analysis_type):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(use_reloader=False, debug=False)
     

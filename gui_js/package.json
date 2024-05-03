@@ -16,7 +16,9 @@
     "moment": "^2.29.4",
     "ng2-charts": "^5.0.4",
     "proper-lockfile": "^4.1.2",
-    "python-shell": "^5.0.0"
+    "ps-tree": "^1.2.0",
+    "python-shell": "^5.0.0",
+    "tree-kill": "^1.2.2"
   },
   "devDependencies": {
     "electron": "^30.0.2",

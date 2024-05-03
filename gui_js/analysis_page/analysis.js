@@ -6,7 +6,6 @@ let averageSessionDurationChartInstance = null;
 let numberOfSessionsChartInstance = null;
 
 const TIME_PERIOD_MAPPING = {
-    "Start of tracking - 08.08.23": "SOT",
     "Previous week": "PW",
     "Current week": "CW",
     "Previous 30 days": "P30D",
@@ -40,11 +39,11 @@ function constructQueryParams() {
     let params = new URLSearchParams({ period: periodCode });
 
     if (periodCode === 'SW') {
-        params.append('week', document.getElementById('weekInput').value);
-        params.append('year', document.getElementById('weekYearInput').value);
+        params.append('week', document.getElementById('weekSelector').value);
+        params.append('year', document.getElementById('yearSelectorForWeek').value);
     } else if (periodCode === 'SM') {
-        params.append('month', document.getElementById('monthInput').value);
-        params.append('year', document.getElementById('yearInput').value);
+        params.append('month', document.getElementById('monthSelector').value);
+        params.append('year', document.getElementById('yearSelectorForMonth').value);
     } else if (periodCode === 'Dates') {
         params.append('SDate', document.getElementById('startDateInput').value);
         params.append('EDate', document.getElementById('endDateInput').value);

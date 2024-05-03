@@ -1,12 +1,16 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const path = require('path');
+const treeKill = require('tree-kill');
 
 const flaskAppPath = path.join(__dirname, 'server.exe');
 const serverWorkingDirectory = __dirname;
-console.log(__dirname)
 
-let flaskApp = exec(flaskAppPath, { cwd: serverWorkingDirectory });
+let flaskApp = spawn(flaskAppPath, { cwd: serverWorkingDirectory });
+
+flaskApp.on('spawn', () => {
+  console.log('Flask app process ID:', flaskApp.pid);
+});
 
 flaskApp.stdout.on('data', (data) => {
   console.log(`Flask: ${data}`);
@@ -44,34 +48,31 @@ ipcMain.on('navigate', (event, page) => {
 
 app.whenReady().then(createWindow);
 
-app.on('window-all-closed', () => {
-    killFlaskApp();
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
 });
 
-app.on('before-quit', () => {
-    killFlaskApp();
+app.on('window-all-closed', () => {
+  killFlaskApp();  
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 function killFlaskApp() {
-  if (flaskApp) {
-    const isWindows = process.platform === "win32";
-    if (isWindows) {
-      exec(`taskkill /pid ${flaskApp.pid} /T /F`, (error, stdout, stderr) => {
-        if (error) {
-          console.error(`Error killing Flask server: ${error}`);
-        }
-      });
-    } else {
-      flaskApp.kill();
-    }
+  if (flaskApp && flaskApp.pid) {
+    console.log(`Attempting to kill Flask server and its child processes with PID: ${flaskApp.pid}`);
+
+    treeKill(flaskApp.pid, 'SIGKILL', (err) => {
+      if (err) {
+        console.error('Failed to kill Flask server and its child processes:', err);
+      } else {
+        console.log('Successfully killed Flask server and its child processes.');
+      }
+    });
+  } else {
+    console.log('Flask app process is not running or PID is unavailable.');
   }
 }

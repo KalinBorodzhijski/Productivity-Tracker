@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "electron": "^30.0.2"
+    "electron": "^30.0.2",
+    "electron-packager": "^17.1.2",
+    "ps-tree": "^1.2.0"
   }
 }
